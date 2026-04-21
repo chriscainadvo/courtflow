@@ -5,6 +5,24 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
 <meta name="description" content="CourtFlow — AI-powered court booking for pickleball facilities in Davao City. 24/7 automated scheduling, SMS confirmations, and calendar sync."/>
 <title>CourtFlow — AI Booking for Pickleball Courts</title>
+
+<!-- Favicon -->
+<link rel="icon" type="image/png" href="favicon.png"/>
+<link rel="apple-touch-icon" href="favicon.png"/>
+
+<!-- Social Preview (Open Graph) -->
+<meta property="og:title" content="CourtFlow — AI Booking for Pickleball Courts"/>
+<meta property="og:description" content="Your courts are full. Your phone shouldn't be. CourtFlow's AI receptionist handles bookings, cancellations, and SMS confirmations 24/7."/>
+<meta property="og:image" content="social-preview.png"/>
+<meta property="og:url" content="https://thecourtflow.co"/>
+<meta property="og:type" content="website"/>
+
+<!-- Twitter Card -->
+<meta name="twitter:card" content="summary_large_image"/>
+<meta name="twitter:title" content="CourtFlow — AI Booking for Pickleball Courts"/>
+<meta name="twitter:description" content="Your courts are full. Your phone shouldn't be. AI receptionist for pickleball courts in Davao City."/>
+<meta name="twitter:image" content="social-preview.png"/>
+
 <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;500;600;700;800&family=DM+Sans:ital,wght@0,300;0,400;0,500;1,300&display=swap" rel="stylesheet"/>
 <style>
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
@@ -71,7 +89,7 @@ nav.scrolled{padding:.85rem 5%}
 .hero{
   min-height:100vh;
   display:flex;flex-direction:column;align-items:center;justify-content:center;
-  text-align:center;padding:9rem 5% 6rem;
+  text-align:center;padding:9rem 5% 8rem;
   position:relative;overflow:hidden;
 }
 .hero-court-bg{
@@ -120,9 +138,10 @@ nav.scrolled{padding:.85rem 5%}
 }
 .btn-light:hover{border-color:var(--black);transform:translateY(-2px)}
 .hero-scroll{
-  position:absolute;bottom:2.5rem;left:50%;transform:translateX(-50%);
+  position:absolute;bottom:2rem;left:50%;transform:translateX(-50%);
   display:flex;flex-direction:column;align-items:center;gap:6px;
   opacity:0;animation:fadeUp .5s .8s ease forwards;
+  pointer-events:none;
 }
 .scroll-line{width:1px;height:40px;background:var(--gray-200);position:relative;overflow:hidden}
 .scroll-line::after{content:'';position:absolute;top:-100%;left:0;width:100%;height:100%;background:var(--black);animation:scrollDown 1.8s ease infinite}
@@ -263,16 +282,39 @@ footer{padding:3rem 5%;border-top:1px solid var(--gray-200)}
   .pricing-grid{grid-template-columns:1fr}
 }
 @media(max-width:768px){
+  nav{padding:1.1rem 5%}
   .nav-links{display:none}
   .hamburger{display:flex}
+  .hero{padding:8rem 6% 7rem}
+  .hero h1{letter-spacing:-1.5px;font-size:clamp(2.6rem,10vw,4rem);margin-bottom:1.5rem}
+  .hero-sub{font-size:1rem;margin-bottom:2.5rem;padding:0 0.5rem}
+  .hero-badge{margin-bottom:2rem}
+  .hero-ctas{flex-direction:column;align-items:center;gap:.75rem}
+  .btn-dark,.btn-light{width:100%;max-width:320px;justify-content:center;padding:1rem 2rem}
+  .stats-bar{grid-template-columns:repeat(2,1fr);padding:0}
+  .stat-num{font-size:1.9rem}
+  .stat-label{font-size:.72rem}
+  section{padding:5rem 6%}
+  .section-h{font-size:clamp(1.75rem,6vw,2.5rem);letter-spacing:-1px}
+  .section-sub{font-size:.9rem;margin-bottom:3rem}
   .steps-grid{grid-template-columns:1fr}
-  .step{border-right:none;border-bottom:1.5px solid var(--gray-200)}
+  .step{border-right:none;border-bottom:1.5px solid var(--gray-200);padding:2rem 1.75rem}
   .step:last-child{border-bottom:none}
-  .hero h1{letter-spacing:-2px}
-  .stats-bar{grid-template-columns:repeat(2,1fr)}
-  footer{padding:2.5rem 5%}
-  .footer-top{flex-direction:column}
-  .footer-bottom{flex-direction:column;text-align:center}
+  .step-num{font-size:2.25rem;margin-bottom:1rem}
+  .feat{padding:2rem 1.75rem}
+  .pricing-grid{grid-template-columns:1fr;gap:1rem}
+  .pc{padding:2rem 1.75rem}
+  .pc-price{font-size:2.5rem}
+  .why-item{padding-bottom:1rem}
+  .email-section{padding:5rem 6%}
+  .email-form-wrap{flex-direction:column;align-items:center}
+  .email-input{width:100%;min-width:unset}
+  .btn-submit{width:100%}
+  footer{padding:3rem 6%}
+  .footer-top{flex-direction:column;gap:2.5rem}
+  .footer-links-group{gap:2.5rem}
+  .footer-bottom{flex-direction:column;text-align:center;gap:.75rem}
+  .hero-scroll{display:none}
 }
 </style>
 </head>
