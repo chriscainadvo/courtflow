@@ -277,6 +277,35 @@ footer{padding:3rem 5%;border-top:1px solid var(--gray-200)}
 .footer-copy{font-size:.76rem;color:var(--gray-400)}
 .footer-made{font-size:.76rem;color:var(--gray-400)}
 
+/* PAYMENT FLOW */
+.pflow-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:1.25rem;margin-bottom:1.25rem}
+.pflow-card{background:var(--white);border:1.5px solid var(--gray-200);border-radius:20px;padding:2.25rem;transition:background .2s;position:relative}
+.pflow-card:hover{background:var(--gray-100)}
+.pflow-num{font-family:var(--display);font-size:2.75rem;font-weight:800;color:var(--gray-200);letter-spacing:-2px;line-height:1;margin-bottom:1.25rem}
+.pflow-card h3{font-family:var(--display);font-size:.95rem;font-weight:700;color:var(--black);margin-bottom:.5rem}
+.pflow-card p{font-size:.84rem;color:var(--gray-600);font-weight:300;line-height:1.75}
+.pflow-tag{display:inline-flex;align-items:center;gap:5px;font-size:.65rem;text-transform:uppercase;letter-spacing:.1em;font-weight:500;padding:.2rem .65rem;border-radius:999px;margin-bottom:.85rem}
+.pflow-tag.green{background:#e8f5e9;color:#2e7d32}
+.pflow-tag.amber{background:#fff8e1;color:#f57f17}
+.pflow-branch-row{display:flex;align-items:center;gap:1rem;margin-bottom:1.25rem}
+.pflow-branch-row::before,.pflow-branch-row::after{content:'';flex:1;height:1px;background:var(--gray-200)}
+.pflow-branch-label{font-size:.72rem;text-transform:uppercase;letter-spacing:.12em;color:var(--gray-400);font-weight:500;white-space:nowrap;display:flex;align-items:center;gap:6px;padding:.35rem .85rem;border:1.5px dashed var(--gray-300);border-radius:999px}
+.pflow-card.alt{border-style:dashed;border-color:var(--gray-300);background:var(--off-white)}
+.pflow-card.alt:hover{background:var(--gray-100)}
+.pflow-card.alt .pflow-num{color:rgba(0,0,0,.1)}
+.pflow-callout{background:var(--black);border-radius:20px;padding:2.25rem 2.5rem;margin-bottom:1.25rem;display:flex;align-items:flex-start;gap:2rem}
+.pflow-callout-num{font-family:var(--display);font-size:2.75rem;font-weight:800;color:rgba(255,255,255,.1);letter-spacing:-2px;line-height:1;flex-shrink:0}
+.pflow-callout h3{font-family:var(--display);font-size:1rem;font-weight:700;color:var(--white);margin-bottom:.5rem}
+.pflow-callout p{font-size:.84rem;color:rgba(255,255,255,.5);font-weight:300;line-height:1.75}
+.pflow-note{font-size:.82rem;color:var(--gray-600);line-height:1.85;padding:1.5rem 2rem;background:var(--gray-100);border-radius:14px;border:1.5px solid var(--gray-200);font-weight:300}
+.pflow-note strong{color:var(--black);font-weight:500}
+@media(max-width:768px){
+  .pflow-grid{grid-template-columns:1fr}
+  .pflow-callout{flex-direction:column;gap:1rem}
+  .pflow-callout-num{font-size:2rem}
+  .pflow-note{padding:1.25rem 1.5rem}
+}
+
 /* NAV TOOLTIPS */
 .nav-tooltip-wrap{position:relative;display:flex;align-items:center}
 .nav-tooltip{
@@ -512,6 +541,61 @@ footer{padding:3rem 5%;border-top:1px solid var(--gray-200)}
       <p>Player gets a text with court number, date, time — and a reminder one hour before play.</p>
     </div>
   </div>
+</section>
+
+<hr class="divider"/>
+
+<!-- PAYMENT & BOOKING FLOW -->
+<section id="payment-flow">
+  <p class="section-eyebrow reveal">Payment & Booking Flow</p>
+  <h2 class="section-h reveal">From booking call to locked-in court — automatically.</h2>
+  <p class="section-sub reveal">Here's exactly how CourtFlow handles the full payment cycle so you never have to chase it manually.</p>
+
+  <div class="pflow-grid">
+    <div class="pflow-card reveal">
+      <div class="pflow-num">01</div>
+      <h3>Player calls the court number</h3>
+      <p>CourtFlow AI answers instantly, checks live availability, and books the court — no staff needed.</p>
+    </div>
+    <div class="pflow-card reveal">
+      <div class="pflow-num">02</div>
+      <h3>SMS confirmation sent immediately</h3>
+      <p>Player receives an SMS with the court details and a GCash payment link right after the call ends.</p>
+    </div>
+    <div class="pflow-card reveal">
+      <div class="pflow-num">03</div>
+      <h3>Player has 1–2 hours to pay</h3>
+      <p>Payment deadline is customizable per court. The player pays via GCash directly to the court's account — CourtFlow never touches the money.</p>
+    </div>
+    <div class="pflow-card reveal">
+      <div class="pflow-num">04</div>
+      <h3>Payment confirmed automatically</h3>
+      <p>Once GCash payment is received, CourtFlow sends a final confirmation SMS. The booking is locked in and cannot be bumped.</p>
+    </div>
+  </div>
+
+  <div class="pflow-branch-row reveal">
+    <div class="pflow-branch-label">
+      <svg width="13" height="13" viewBox="0 0 16 16" fill="none"><path d="M8 3v5l3 3" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/><circle cx="8" cy="8" r="6.5" stroke="currentColor" stroke-width="1.5"/></svg>
+      If no payment received within deadline
+    </div>
+  </div>
+
+  <div class="pflow-card alt reveal" style="margin-bottom:1.25rem">
+    <div class="pflow-num">05</div>
+    <h3>No payment received?</h3>
+    <p>If payment is not received within the deadline, the reservation is automatically cancelled and the court slot reopens for other players. The player receives a cancellation notification via SMS — no manual intervention needed.</p>
+  </div>
+
+  <div class="pflow-callout reveal">
+    <div class="pflow-callout-num">06</div>
+    <div>
+      <h3>Court keeps 100% of revenue</h3>
+      <p>All payments go directly to the court's GCash account. CourtFlow only handles the automation — scheduling, confirmations, reminders, and cancellations. Your money is always yours.</p>
+    </div>
+  </div>
+
+  <p class="pflow-note reveal"><strong>Payment deadlines are fully customizable.</strong> Courts can set 30 minutes, 1 hour, 2 hours, or any timeframe that works for them. CourtFlow adapts to your business needs.</p>
 </section>
 
 <hr class="divider"/>
