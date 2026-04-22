@@ -278,18 +278,22 @@ footer{padding:3rem 5%;border-top:1px solid var(--gray-200)}
 .footer-made{font-size:.76rem;color:var(--gray-400)}
 
 /* FAQ */
-.faq-list{display:flex;flex-direction:column;gap:0;border:1.5px solid var(--gray-200);border-radius:20px;overflow:hidden;max-width:760px}
-.faq-item{border-bottom:1.5px solid var(--gray-200)}
+#faq{padding:7rem 5%}
+.faq-inner{max-width:700px;margin:0 auto}
+#faq .section-eyebrow{margin-bottom:1rem}
+#faq .section-h{font-size:clamp(2.5rem,5vw,3.25rem);letter-spacing:-2px;margin-bottom:3rem;max-width:none}
+.faq-list{display:flex;flex-direction:column;border:1.5px solid var(--gray-200);border-radius:20px;overflow:hidden}
+.faq-item{border-bottom:1.5px solid var(--gray-200);transition:padding-left .25s ease}
 .faq-item:last-child{border-bottom:none}
+.faq-item:hover{padding-left:.35rem}
 .faq-q{width:100%;background:none;border:none;padding:1.75rem 2rem;text-align:left;cursor:pointer;display:flex;align-items:center;justify-content:space-between;gap:1.5rem;font-family:var(--display);font-size:.975rem;font-weight:700;color:var(--black);transition:background .2s}
-.faq-q:hover{background:var(--gray-100)}
-.faq-q.open{background:var(--gray-100)}
-.faq-icon{width:28px;height:28px;border-radius:50%;border:1.5px solid var(--gray-200);display:flex;align-items:center;justify-content:center;flex-shrink:0;transition:transform .3s,background .2s,border-color .2s}
+.faq-q:hover,.faq-q.open{background:var(--gray-100)}
+.faq-icon{width:28px;height:28px;border-radius:50%;border:1.5px solid var(--gray-200);background:var(--gray-100);display:flex;align-items:center;justify-content:center;flex-shrink:0;transition:transform .35s ease,background .25s,border-color .25s}
 .faq-q.open .faq-icon{background:var(--black);border-color:var(--black);transform:rotate(45deg)}
-.faq-icon svg{transition:stroke .2s}
-.faq-q.open .faq-icon svg{stroke:white}
-.faq-a{max-height:0;overflow:hidden;transition:max-height .35s ease,padding .35s ease}
-.faq-a.open{max-height:200px}
+.faq-icon svg line{transition:stroke .25s}
+.faq-q.open .faq-icon svg line{stroke:white}
+.faq-a{max-height:0;overflow:hidden;opacity:0;transition:max-height .4s ease,opacity .3s ease}
+.faq-a.open{max-height:300px;opacity:1}
 .faq-a-inner{padding:0 2rem 1.75rem;font-size:.875rem;color:var(--gray-600);font-weight:300;line-height:1.8}
 
 /* PAYMENT FLOW */
@@ -871,44 +875,46 @@ footer{padding:3rem 5%;border-top:1px solid var(--gray-200)}
 
 <!-- FAQ -->
 <section id="faq">
-  <p class="section-eyebrow reveal">FAQ</p>
-  <h2 class="section-h reveal">Common questions, straight answers.</h2>
+  <div class="faq-inner">
+    <p class="section-eyebrow reveal">FAQ</p>
+    <h2 class="section-h reveal">Common questions, straight answers.</h2>
 
-  <div class="faq-list reveal">
-    <div class="faq-item">
-      <button class="faq-q" onclick="toggleFaq(this)">
-        What if the AI makes a mistake?
-        <span class="faq-icon"><svg width="12" height="12" viewBox="0 0 12 12" fill="none"><path d="M6 1v10M1 6h10" stroke="#0a0a0a" stroke-width="1.5" stroke-linecap="round"/></svg></span>
-      </button>
-      <div class="faq-a"><p class="faq-a-inner">CourtFlow is built with human escalation. If the AI is unsure, it transfers the call to your staff immediately. You're always in control.</p></div>
-    </div>
-    <div class="faq-item">
-      <button class="faq-q" onclick="toggleFaq(this)">
-        Do I need any new equipment?
-        <span class="faq-icon"><svg width="12" height="12" viewBox="0 0 12 12" fill="none"><path d="M6 1v10M1 6h10" stroke="#0a0a0a" stroke-width="1.5" stroke-linecap="round"/></svg></span>
-      </button>
-      <div class="faq-a"><p class="faq-a-inner">No. CourtFlow works with your existing phone number and Google Calendar. Zero new hardware required.</p></div>
-    </div>
-    <div class="faq-item">
-      <button class="faq-q" onclick="toggleFaq(this)">
-        What if my players speak Bisaya or Tagalog?
-        <span class="faq-icon"><svg width="12" height="12" viewBox="0 0 12 12" fill="none"><path d="M6 1v10M1 6h10" stroke="#0a0a0a" stroke-width="1.5" stroke-linecap="round"/></svg></span>
-      </button>
-      <div class="faq-a"><p class="faq-a-inner">CourtFlow understands Filipino-accented English, Bisaya, and Tagalog naturally. No extra setup needed.</p></div>
-    </div>
-    <div class="faq-item">
-      <button class="faq-q" onclick="toggleFaq(this)">
-        What happens if my internet goes down?
-        <span class="faq-icon"><svg width="12" height="12" viewBox="0 0 12 12" fill="none"><path d="M6 1v10M1 6h10" stroke="#0a0a0a" stroke-width="1.5" stroke-linecap="round"/></svg></span>
-      </button>
-      <div class="faq-a"><p class="faq-a-inner">Bookings are stored in Google Calendar which syncs automatically. Your data is always safe and recoverable.</p></div>
-    </div>
-    <div class="faq-item">
-      <button class="faq-q" onclick="toggleFaq(this)">
-        How long does setup take?
-        <span class="faq-icon"><svg width="12" height="12" viewBox="0 0 12 12" fill="none"><path d="M6 1v10M1 6h10" stroke="#0a0a0a" stroke-width="1.5" stroke-linecap="round"/></svg></span>
-      </button>
-      <div class="faq-a"><p class="faq-a-inner">Most courts are fully live within 48 hours of signing up. We handle the entire setup for you.</p></div>
+    <div class="faq-list">
+      <div class="faq-item reveal">
+        <button class="faq-q" onclick="toggleFaq(this)">
+          What if the AI makes a mistake?
+          <span class="faq-icon"><svg width="12" height="12" viewBox="0 0 12 12" fill="none"><line x1="6" y1="1" x2="6" y2="11" stroke="#0a0a0a" stroke-width="1.5" stroke-linecap="round"/><line x1="1" y1="6" x2="11" y2="6" stroke="#0a0a0a" stroke-width="1.5" stroke-linecap="round"/></svg></span>
+        </button>
+        <div class="faq-a"><p class="faq-a-inner">CourtFlow is built with human escalation. If the AI is unsure, it transfers the call to your staff immediately. You're always in control.</p></div>
+      </div>
+      <div class="faq-item reveal">
+        <button class="faq-q" onclick="toggleFaq(this)">
+          Do I need any new equipment?
+          <span class="faq-icon"><svg width="12" height="12" viewBox="0 0 12 12" fill="none"><line x1="6" y1="1" x2="6" y2="11" stroke="#0a0a0a" stroke-width="1.5" stroke-linecap="round"/><line x1="1" y1="6" x2="11" y2="6" stroke="#0a0a0a" stroke-width="1.5" stroke-linecap="round"/></svg></span>
+        </button>
+        <div class="faq-a"><p class="faq-a-inner">No. CourtFlow works with your existing phone number and Google Calendar. Zero new hardware required.</p></div>
+      </div>
+      <div class="faq-item reveal">
+        <button class="faq-q" onclick="toggleFaq(this)">
+          What if my players speak Bisaya or Tagalog?
+          <span class="faq-icon"><svg width="12" height="12" viewBox="0 0 12 12" fill="none"><line x1="6" y1="1" x2="6" y2="11" stroke="#0a0a0a" stroke-width="1.5" stroke-linecap="round"/><line x1="1" y1="6" x2="11" y2="6" stroke="#0a0a0a" stroke-width="1.5" stroke-linecap="round"/></svg></span>
+        </button>
+        <div class="faq-a"><p class="faq-a-inner">CourtFlow understands Filipino-accented English, Bisaya, and Tagalog naturally. No extra setup needed.</p></div>
+      </div>
+      <div class="faq-item reveal">
+        <button class="faq-q" onclick="toggleFaq(this)">
+          What happens if my internet goes down?
+          <span class="faq-icon"><svg width="12" height="12" viewBox="0 0 12 12" fill="none"><line x1="6" y1="1" x2="6" y2="11" stroke="#0a0a0a" stroke-width="1.5" stroke-linecap="round"/><line x1="1" y1="6" x2="11" y2="6" stroke="#0a0a0a" stroke-width="1.5" stroke-linecap="round"/></svg></span>
+        </button>
+        <div class="faq-a"><p class="faq-a-inner">Bookings are stored in Google Calendar which syncs automatically. Your data is always safe and recoverable.</p></div>
+      </div>
+      <div class="faq-item reveal">
+        <button class="faq-q" onclick="toggleFaq(this)">
+          How long does setup take?
+          <span class="faq-icon"><svg width="12" height="12" viewBox="0 0 12 12" fill="none"><line x1="6" y1="1" x2="6" y2="11" stroke="#0a0a0a" stroke-width="1.5" stroke-linecap="round"/><line x1="1" y1="6" x2="11" y2="6" stroke="#0a0a0a" stroke-width="1.5" stroke-linecap="round"/></svg></span>
+        </button>
+        <div class="faq-a"><p class="faq-a-inner">Most courts are fully live within 48 hours of signing up. We handle the entire setup for you.</p></div>
+      </div>
     </div>
   </div>
 </section>
@@ -1012,6 +1018,9 @@ document.querySelectorAll('.features-grid .feat').forEach((el,i)=>{
   el.style.transitionDelay=`${i*0.08}s`;
 });
 document.querySelectorAll('.pricing-grid .pc').forEach((el,i)=>{
+  el.style.transitionDelay=`${i*0.1}s`;
+});
+document.querySelectorAll('.faq-item').forEach((el,i)=>{
   el.style.transitionDelay=`${i*0.1}s`;
 });
 
