@@ -277,6 +277,21 @@ footer{padding:3rem 5%;border-top:1px solid var(--gray-200)}
 .footer-copy{font-size:.76rem;color:var(--gray-400)}
 .footer-made{font-size:.76rem;color:var(--gray-400)}
 
+/* FAQ */
+.faq-list{display:flex;flex-direction:column;gap:0;border:1.5px solid var(--gray-200);border-radius:20px;overflow:hidden;max-width:760px}
+.faq-item{border-bottom:1.5px solid var(--gray-200)}
+.faq-item:last-child{border-bottom:none}
+.faq-q{width:100%;background:none;border:none;padding:1.75rem 2rem;text-align:left;cursor:pointer;display:flex;align-items:center;justify-content:space-between;gap:1.5rem;font-family:var(--display);font-size:.975rem;font-weight:700;color:var(--black);transition:background .2s}
+.faq-q:hover{background:var(--gray-100)}
+.faq-q.open{background:var(--gray-100)}
+.faq-icon{width:28px;height:28px;border-radius:50%;border:1.5px solid var(--gray-200);display:flex;align-items:center;justify-content:center;flex-shrink:0;transition:transform .3s,background .2s,border-color .2s}
+.faq-q.open .faq-icon{background:var(--black);border-color:var(--black);transform:rotate(45deg)}
+.faq-icon svg{transition:stroke .2s}
+.faq-q.open .faq-icon svg{stroke:white}
+.faq-a{max-height:0;overflow:hidden;transition:max-height .35s ease,padding .35s ease}
+.faq-a.open{max-height:200px}
+.faq-a-inner{padding:0 2rem 1.75rem;font-size:.875rem;color:var(--gray-600);font-weight:300;line-height:1.8}
+
 /* PAYMENT FLOW */
 .pflow-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:1.25rem;margin-bottom:1.25rem}
 .pflow-card{background:var(--white);border:1.5px solid var(--gray-200);border-radius:20px;padding:2.25rem;transition:background .2s;position:relative}
@@ -854,6 +869,50 @@ footer{padding:3rem 5%;border-top:1px solid var(--gray-200)}
   </div>
 </section>
 
+<!-- FAQ -->
+<section id="faq">
+  <p class="section-eyebrow reveal">FAQ</p>
+  <h2 class="section-h reveal">Common questions, straight answers.</h2>
+
+  <div class="faq-list reveal">
+    <div class="faq-item">
+      <button class="faq-q" onclick="toggleFaq(this)">
+        What if the AI makes a mistake?
+        <span class="faq-icon"><svg width="12" height="12" viewBox="0 0 12 12" fill="none"><path d="M6 1v10M1 6h10" stroke="#0a0a0a" stroke-width="1.5" stroke-linecap="round"/></svg></span>
+      </button>
+      <div class="faq-a"><p class="faq-a-inner">CourtFlow is built with human escalation. If the AI is unsure, it transfers the call to your staff immediately. You're always in control.</p></div>
+    </div>
+    <div class="faq-item">
+      <button class="faq-q" onclick="toggleFaq(this)">
+        Do I need any new equipment?
+        <span class="faq-icon"><svg width="12" height="12" viewBox="0 0 12 12" fill="none"><path d="M6 1v10M1 6h10" stroke="#0a0a0a" stroke-width="1.5" stroke-linecap="round"/></svg></span>
+      </button>
+      <div class="faq-a"><p class="faq-a-inner">No. CourtFlow works with your existing phone number and Google Calendar. Zero new hardware required.</p></div>
+    </div>
+    <div class="faq-item">
+      <button class="faq-q" onclick="toggleFaq(this)">
+        What if my players speak Bisaya or Tagalog?
+        <span class="faq-icon"><svg width="12" height="12" viewBox="0 0 12 12" fill="none"><path d="M6 1v10M1 6h10" stroke="#0a0a0a" stroke-width="1.5" stroke-linecap="round"/></svg></span>
+      </button>
+      <div class="faq-a"><p class="faq-a-inner">CourtFlow understands Filipino-accented English, Bisaya, and Tagalog naturally. No extra setup needed.</p></div>
+    </div>
+    <div class="faq-item">
+      <button class="faq-q" onclick="toggleFaq(this)">
+        What happens if my internet goes down?
+        <span class="faq-icon"><svg width="12" height="12" viewBox="0 0 12 12" fill="none"><path d="M6 1v10M1 6h10" stroke="#0a0a0a" stroke-width="1.5" stroke-linecap="round"/></svg></span>
+      </button>
+      <div class="faq-a"><p class="faq-a-inner">Bookings are stored in Google Calendar which syncs automatically. Your data is always safe and recoverable.</p></div>
+    </div>
+    <div class="faq-item">
+      <button class="faq-q" onclick="toggleFaq(this)">
+        How long does setup take?
+        <span class="faq-icon"><svg width="12" height="12" viewBox="0 0 12 12" fill="none"><path d="M6 1v10M1 6h10" stroke="#0a0a0a" stroke-width="1.5" stroke-linecap="round"/></svg></span>
+      </button>
+      <div class="faq-a"><p class="faq-a-inner">Most courts are fully live within 48 hours of signing up. We handle the entire setup for you.</p></div>
+    </div>
+  </div>
+</section>
+
 <!-- CONTACT MODAL -->
 <div class="modal-overlay" id="contactModal" onclick="closeContactOutside(event)">
   <div class="modal">
@@ -955,6 +1014,13 @@ document.querySelectorAll('.features-grid .feat').forEach((el,i)=>{
 document.querySelectorAll('.pricing-grid .pc').forEach((el,i)=>{
   el.style.transitionDelay=`${i*0.1}s`;
 });
+
+// FAQ
+function toggleFaq(btn){
+  const isOpen=btn.classList.contains('open');
+  document.querySelectorAll('.faq-q.open').forEach(b=>{b.classList.remove('open');b.nextElementSibling.classList.remove('open')});
+  if(!isOpen){btn.classList.add('open');btn.nextElementSibling.classList.add('open')}
+}
 
 // CONTACT MODAL
 function openContact(e){e.preventDefault();document.getElementById('contactModal').classList.add('open');document.body.style.overflow='hidden'}
