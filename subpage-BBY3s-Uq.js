@@ -1,0 +1,1 @@
+const e=window.location.pathname;document.querySelectorAll(".page-nav .nav-links a").forEach(t=>{(t.getAttribute("href")===e||t.getAttribute("href")===e.replace(/\/$/,""))&&t.classList.add("active")});
